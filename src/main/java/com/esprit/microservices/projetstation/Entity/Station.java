@@ -1,7 +1,11 @@
 package com.esprit.microservices.projetstation.Entity;
 
+import jdk.nashorn.internal.objects.annotations.Setter;
+import org.springframework.boot.actuate.autoconfigure.cloudfoundry.AccessLevel;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -9,7 +13,10 @@ import java.io.Serializable;
 public class Station implements Serializable {
     private static final long serialVersionUID=6;
     @Id
-    @GeneratedValue
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private int idstation;
     private String nomstation, adresse;
 

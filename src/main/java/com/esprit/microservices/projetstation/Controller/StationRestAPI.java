@@ -9,27 +9,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+
+@RequestMapping("station")
 public class StationRestAPI {
     @Autowired
     private StationService stationService;
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/addstation")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Station> createStation(@RequestBody Station station){
         return new ResponseEntity<>(stationService.addStation(station),HttpStatus.OK
         );
     }
-    @PutMapping(value = "/{idStation}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping("/update/{idstation}")
     @ResponseStatus(HttpStatus.OK)
     public  ResponseEntity<Station> updateStation(@PathVariable(value = "idstation")int idStation,@RequestBody Station station)
     {
         return new ResponseEntity<>(stationService.updateStation(idStation,station),HttpStatus.OK);
 
     }
-    @DeleteMapping(value = "/{idstation}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping("/delete/{idstation}")
     @ResponseStatus(HttpStatus.OK)
 
     public ResponseEntity<String> deleteStation(@PathVariable(value = "idstation")int idStation){
         return new ResponseEntity<>(stationService.deleteStation(idStation),HttpStatus.OK);
+    }
+    @GetMapping("/getAll")
+    public Iterable<Station> getAll()
+    {
+        return stationService.getAll();
     }
 
 }

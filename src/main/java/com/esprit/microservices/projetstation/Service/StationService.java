@@ -5,12 +5,18 @@ import com.esprit.microservices.projetstation.Repository.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
 
 public class StationService {
     @Autowired
     private StationRepository stationRepository;
+
+    public List<Station> getAll() {
+        return (List<Station>) stationRepository.findAll();
+    }
     public Station addStation(Station s){
         return stationRepository.save(s);
     }
