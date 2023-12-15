@@ -1,0 +1,69 @@
+version: "3"
+services:
+  eureka:
+    build: .\EurekaServer
+    ports:
+     - "8761:8761"
+    hostname: eureka
+    image: "eureka"
+    container_name: eurekaC
+
+  bus:
+    build: .\GestionBus
+    ports:
+      - "8083:8083"
+    hostname: Bus
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka:8761/eureka  
+    depends_on:
+      - eureka
+    image: "bus"
+    container_name: busC 
+
+  station:
+    build: .\ProjetStation
+    ports:
+      - "8082:8082"
+    hostname: station
+    environment:
+       - eureka.client.service-url.defaultZone=http://eureka:8761/eureka  
+    depends_on:
+      - eureka
+    image: "station"
+    container_name: stationC 
+  
+  voyage:
+    build: .\GestionVoyage
+    ports:
+      - "8081:8081"
+    hostname: voyage
+    environment:
+       - eureka.client.service-url.defaultZone=http://eureka:8761/eureka   
+    depends_on:
+      - eureka
+    image: "voyage"
+    container_name: voyageC 
+    
+  APIgateway:
+    build: .\API_Gateway_Server  # Change this to the actual directory of your Node.js app
+    ports:
+      - "8084:8084"  # Adjust the port as needed
+    environment:
+       - eureka.client.service-url.defaultZone=http://eureka:8761/eureka 
+    depends_on:
+      - eureka
+    image: "gateway"
+    container_name: APIgatewayC
+  
+  reservation:
+    build:  .\node-mongo-app
+    ports:
+      - "3000:3000"
+    environment:
+        - eureka.client.service-url.defaultZone=http://eureka:8761/eureka
+    depends_on:
+        - eureka
+    image: "node"
+    container_name: reservationC
+
+
