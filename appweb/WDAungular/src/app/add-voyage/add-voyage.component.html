@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">New route</h4>
+            <form (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label" for="start">Start Date:</label>
+                    <input class="form-control" type="date" id="start" name="start" [(ngModel)]="voyage.start">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="end">End Date:</label>
+                    <input class="form-control" type="date" id="end" name="end" [(ngModel)]="voyage.end">
+                </div>
+              
+                <div class="mb-3">
+                    <label class="form-label" for="depart">Depart:</label>
+                    <div>
+                        <select class="form-select" aria-label="Default select example" name="depart" [(ngModel)]="voyage.depart">
+                          <option value="" disabled selected>Choisir une depart</option>
+                          <option *ngFor="let station of stations" [ngValue]="station.nomstation">{{ station.nomstation }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="destination">Destination:</label>
+                    <div>
+                        <select class="form-select" aria-label="Default select example" name="destination" [(ngModel)]="voyage.destination">
+                          <option value="" disabled selected>Choisir une destination</option>
+                          <option *ngFor="let station of stations" [ngValue]="station.nomstation">{{ station.nomstation }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="bus">Bus:</label>
+                    <div>
+                        <select class="form-select" aria-label="Default select example" name="bus" [(ngModel)]="voyage.bus">
+                          <option value="" disabled selected>Choisir un bus</option>
+                          <option *ngFor="let bus of buss" [ngValue]="bus.matricule">{{ bus.matricule }}</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

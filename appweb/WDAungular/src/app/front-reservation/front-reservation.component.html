@@ -1,0 +1,14 @@
+
+
+<div class="reservation-list">
+  <div class="reservation-card" *ngFor="let reservation of reservations">
+    <h4 style="color: rgb(17, 17, 77);">Voyage </h4>
+    <p>Date: {{ reservation.date | date:'dd/MM/yyyy' }}</p>
+    <p>Etat: {{ reservation.etat ? 'Confirmed' : 'Pending' }}</p>
+    <p>Depart:{{ getVoyage(reservation)?.depart }}</p>
+    <p>Destination:{{ getVoyage(reservation)?.destination }}</p>
+    <p>Bus:{{ getVoyage(reservation)?.bus }}</p>
+    <p>Start date:{{ getVoyage(reservation)?.start }}</p>
+    <p>End date:{{ getVoyage(reservation)?.end }}</p>
+  </div>
+</div>

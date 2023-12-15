@@ -1,0 +1,12 @@
+
+
+<div class="bus-list">
+  <div class="bus-card-container">
+    <div class="bus-card" *ngFor="let bus of buses">
+      <h4 style="color: rgb(17, 17, 77);">Bus:</h4>
+      <p>Marque: {{ bus.marque }}</p>
+      <p>Matricule: {{ bus.matricule }}</p>
+      <p>Number of Places: {{ bus.nbrPlaces }}</p>
+    </div>
+  </div>
+</div>

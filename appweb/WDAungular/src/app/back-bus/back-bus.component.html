@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">List des bus</h5>
+      <div class="d-flex justify-content-end align-items-center">
+        <button class="btn btn-success mx-2" (click)="genererExcel()"><i class="fas fa-file-excel"></i></button>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th>Nom</th>
+            <th>Matricule</th>
+            <th>Controles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bus of list">
+            <th scope="row">{{ bus.id }}</th>
+            <td>{{ bus.marque }}</td>
+            <td>{{ bus.matricule }}</td>
+            <th class="controles">
+              <button class="btn btn-danger mx-2" (click)="supprimer(bus)"><i class="fas fa-trash-alt"></i></button>
+              <button (click)="ouvrirFormulaireModif(bus)" class="btn btn-primary mx-2"><i class="fas fa-edit"></i></button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center mb-3">
+          <a routerLink="/back/add-bus" class="add-btn btn btn-primary btn-block">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

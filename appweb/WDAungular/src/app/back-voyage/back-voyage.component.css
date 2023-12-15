@@ -1,0 +1,12 @@
+.add-btn
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.controles
+{
+    justify-content: space-around;
+    
+}

@@ -1,0 +1,57 @@
+.station-list {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .station-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+    max-width: 900px; /* Adjust the max-width based on your design */
+  }
+  
+  .station-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 250px; /* Adjust the width based on your design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .station-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .station-card-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .station-card {
+    background-color: rgb(169, 169, 181);
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .station-card:hover {
+    transform: scale(1.05);
+  }
+
+  h4 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #555;
+  }

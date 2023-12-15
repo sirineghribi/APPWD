@@ -1,0 +1,19 @@
+
+
+<div class="voyage-list">
+  <div class="voyage-card-container">
+    <div class="voyage-card" *ngFor="let voyage of voyages">
+      <h4 style="color: rgb(17, 17, 77);">Voyage :</h4>
+      <p>Start Date: {{ voyage.start | date:'dd/MM/yyyy' }}</p>
+      <p>End Date: {{ voyage.end | date:'dd/MM/yyyy' }}</p>
+      <p>Depart: {{ voyage.depart }}</p>
+      <p>Destination: {{ voyage.destination }}</p>
+      <p>Bus: {{ voyage.bus }}</p>
+      <button style="color: rgb(242, 242, 244); background-color: rgb(5, 5, 16);" (click)="reserver(voyage)">Reserve</button>
+    </div>
+  </div>
+</div>
+
+<h2>Mes Reservations</h2>
+<app-front-reservation [reservations]="reservations"></app-front-reservation>
+

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">New Station</h4>
+            <form (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label" for="start">Nom:</label>
+                    <input class="form-control" type="text" id="start" name="start" [(ngModel)]="station.nomstation">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="end">Address:</label>
+                    <input class="form-control" type="text" id="end" name="end" [(ngModel)]="station.adresse">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
